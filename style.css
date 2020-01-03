@@ -1,0 +1,100 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 300px;
+  height: 600px;
+  background: #ffffff;
+  border-radius: 25px;
+  margin: auto;
+  border: solid 1px #000000;
+}
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.app_title,
+.app_vmrunDirection {
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+}
+.function {
+  width: 300px;
+  height: 430px;
+  background: #7a7a7a;
+  border-radius: 25px;
+  padding: 20px 18px;
+}
+.choose {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+  height: 100%;
+}
+.function_input,
+.version_input,
+.file_input,
+.locaction_input,
+.nameNew_input {
+  width: 160px;
+  height: 40px;
+  background: #e1e1e1;
+  border-radius: 20px;
+  border: none;
+  box-shadow: none;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+.file_input,
+.locaction_input,
+.nameNew_input {
+  width: 100%;
+}
+.file_input::after,
+.locaction_input::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translate(-6px, -23px);
+  background: #e1e1e1 url(images/cloud.svg) 97% 30% no-repeat;
+  background-size: 30px 30px;
+}
+.function_label,
+.version_label,
+.file_label,
+.locaction_label,
+.nameNew_label {
+  font-family: Roboto;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.choose_function,
+.choose_versionFunction,
+.choose_virtualMachine,
+.choose_locaction,
+.choose_nameNewVms {
+  width: 160px;
+  height: 70px;
+}
+.choose_virtualMachine,
+.choose_locaction,
+.choose_nameNewVms {
+  width: 100%;
+}
+.choose_versionFunction {
+  align-self: flex-end;
+}
