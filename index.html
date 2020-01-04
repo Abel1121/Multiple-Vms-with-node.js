@@ -10,7 +10,7 @@
 <body>
   <section class="app">
       <p class="app_title">Choose Vmware direction</p>
-      <img class="app_image" src="images/cloud.svg" alt="Cloud"/>
+      <input class="select_input" accept=".exe" type="file">
       <p class="app_vmrunDirection"></p>
       <section class="function">
           <ul class="choose">
@@ -18,20 +18,17 @@
                 <label class="function_label"for="function">Choose function</label>
                 <input class="function_input" name="function" list="functions">
                 <datalist id="functions">
-                    <option>clone</option>
                 </datalist>
             </li>
             <li class="choose_versionFunction">
                 <label class="version_label"for="version">Choose version function</label>
                 <input class="version_input" name="version" list="versions">
                     <datalist id="versions">
-                        <option>full</option>
-                        <option>linked</option>
                     </datalist>
             </li>
             <li class="choose_virtualMachine">
                 <label class="file_label" for="version">Choose Virtual machine</label>
-                <input class="file_input" type="file">
+                <input class="file_input" accept=".vmdk" type="file">
             </li>
             <li class="choose_locaction">
                 <label class="locaction_label"for="version">Choose locaction new VMs</label>
@@ -44,5 +41,6 @@
           </ul>
       </section>
   </section>
+  <script src="app.js"></script>
 </body>
 </html>
