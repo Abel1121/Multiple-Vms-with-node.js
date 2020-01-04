@@ -1,0 +1,12 @@
+{
+  "name": "vms_multiple",
+  "version": "1.0.0",
+  "description": "Vms multiple with VMS API and electron/node.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^7.1.7"
+  }
+}

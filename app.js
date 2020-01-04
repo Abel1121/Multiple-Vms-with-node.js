@@ -108,23 +108,80 @@
 // }
 
 // main()
-const functions = document.getElementById("functions")
-const versions = document.getElementById("versions")
-const choosenFunction = document.querySelector('.function_input').value;
-const myObj = 
-{
-  "clone": "full,linked",
-  "other": "something,everything"
-}
-const myJson = JSON.stringify(myObj)
-for(let i=0; i < Object.keys(myObj).length; i++ ) {
-  functions.innerHTML += `<option>${Object.keys(myObj)[i]}</option>`
-}
-const myObjMap = new Map(Object.entries(myObj));
-versions.addEventListener("click", e => {
-  for(let i=0; i < Object.keys(myObj).length; i++ ) {
-    versions.innerHTML += `<option>${myObjMap.get(document.querySelector('.function_input').value).split(",")[i]}</option>`
-  }
-  console.log("updated")
+// const functions = document.getElementById("functions")
+// const versions = document.getElementById("versions")
+// const choosenFunction = document.querySelector('.function_input').value;
+// const myObj = 
+// {
+//   "clone": "full,linked",
+//   "other": "something,everything"
+// }
+// const myJson = JSON.stringify(myObj)
+// for(let i=0; i < Object.keys(myObj).length; i++ ) {
+//   functions.innerHTML += `<option>${Object.keys(myObj)[i]}</option>`
+// }
+// const myObjMap = new Map(Object.entries(myObj));
+// versions.addEventListener("click", e => {
+//   for(let i=0; i < Object.keys(myObj).length; i++ ) {
+//     versions.innerHTML += `<option>${myObjMap.get(document.querySelector('.function_input').value).split(",")[i]}</option>`
+//   }
+//   console.log("updated")
+// })
+// const { app, BrowserWindow } = require('electron')
+
+// function createWindow () {
+//   // Stwórz okno przeglądarki.
+//   let win = new BrowserWindow({
+//     width: 300,
+//     height: 680,
+//     webPreferences: {
+//       nodeIntegration: true
+//     }
+//   })
+
+//   // and load the index.html of the app.
+//   win.loadFile('index.html')
+// }
+
+// app.on('ready', createWindow)
+const path = require('path')
+const { exec } = require('child_process');
+const vmrunDirection = document.querySelector('.app_vmrunDirection');
+const selectInput = document.querySelector('.select_input');
+const chooseVirtualMachine = document.querySelector('.file_input');
+const locactionNewMachine = document.querySelector('.locaction_input');
+const nameNewVms = document.querySelector('.nameNew_input');
+const buttonStart = document.querySelector('.buttonStart');
+selectInput.addEventListener("change", e => {
+    vmrunDirection.innerHTML = path.dirname(document.querySelector(".select_input").files[0].path)
+    console.log(path.dirname("Defoult Vmrun locaction is " + document.querySelector(".select_input").files[0].path))
 })
-  
+chooseVirtualMachine.addEventListener("change", e => {
+  //chooseVirtualMachine.innerHTML = path.dirname(document.querySelector(".select_input").files[0].path)
+  console.log("Vmware to clone is " + document.querySelector(".file_input").files[0].path)
+ })
+ locactionNewMachine.addEventListener("change", e => {
+  console.log("New machine will be put in " + path.dirname(document.querySelector(".locaction_input").files[0].path))
+
+  //   vmrunDirection.innerHTML = path.dirname(document.querySelector(".select_input").files[0].path)
+ })
+ nameNewVms.addEventListener("change", e => {
+  console.log("New Vms have name " + nameNewVms.value)
+})
+buttonStart.addEventListener("click", e => {
+  console.log(path.dirname("Defoult Vmrun locaction is " + document.querySelector(".select_input").files[0].path))
+  console.log("Vmware to clone is " + document.querySelector(".file_input").files[0].path)
+  console.log("New machine will be put in " + path.dirname(document.querySelector(".locaction_input").files[0].path))
+  console.log("New Vms have name: " + nameNewVms.value)
+  process.chdir(path.dirname(document.querySelector(".select_input").files[0].path));
+  console.log(`Your locaction now is : ${process.cwd()}`);
+  exec(`vmrun clone ${document.querySelector(".file_input").files[0].path} ${path.dirname(document.querySelector(".locaction_input").files[0].path) + nameNewVms.value + `\\` + nameNewVms.value + `.vmx`} linked`, (error, stdout, stderr) => {
+        if (error) {
+          throw error;
+        }
+        console.log(stdout);
+      });
+})
+//const selectedVmrun = path.dirname(document.querySelector(".select_input").files[0].path);
+//process.chdir(`${selectedVmrun}`);
+//console.log(path.dirname(document.querySelector(".select_input").files[0].path))

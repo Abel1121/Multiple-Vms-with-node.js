@@ -3,41 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" href="style.css">
     <title>Multiple VMs</title>
 </head>
 <body>
   <section class="app">
       <p class="app_title">Choose Vmware direction</p>
-      <input class="select_input" accept=".exe" type="file">
+      <input class="select_input" type="file" webkitdirectory multiple>
       <p class="app_vmrunDirection"></p>
+
       <section class="function">
           <ul class="choose">
             <li class="choose_function">
                 <label class="function_label"for="function">Choose function</label>
                 <input class="function_input" name="function" list="functions">
                 <datalist id="functions">
+                    <option></option>
+                    <option>clone</option>
                 </datalist>
             </li>
             <li class="choose_versionFunction">
                 <label class="version_label"for="version">Choose version function</label>
                 <input class="version_input" name="version" list="versions">
                     <datalist id="versions">
+                        <option>full</option>
+                        <option>linked</option>
                     </datalist>
+            </li>
+            <li class="howMany">
+                <label class="howMany_label" for="howMany">How many?</label>
+                <input class="howMany_input" name="howMany" type="number" min="0" max="100">
             </li>
             <li class="choose_virtualMachine">
                 <label class="file_label" for="version">Choose Virtual machine</label>
-                <input class="file_input" accept=".vmdk" type="file">
+                <input class="file_input" accept=".vmx" type="file">
             </li>
             <li class="choose_locaction">
                 <label class="locaction_label"for="version">Choose locaction new VMs</label>
-                <input class="locaction_input" type="file">
+                <input class="locaction_input" type="file" webkitdirectory multiple>
             </li>
             <li class="choose_nameNewVms"> 
                 <label class="nameNew_label" for="version">Write name new Vms</label>
                 <input class="nameNew_input" type="text">
             </li>
+            <button class="buttonStart">start</button>
           </ul>
       </section>
   </section>
