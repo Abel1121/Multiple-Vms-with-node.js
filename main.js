@@ -7,9 +7,14 @@ function createWindow () {
   // Stwórz okno przeglądarki.
   win = new BrowserWindow({
     width: 300,
-    height: 680,
+    height: 600,
+    frame: false,
+    transparent:true,
+    titleBarStyle: 'hidden',
+    resizable: false,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      devTools: false,
     }
   })
 
@@ -18,7 +23,6 @@ function createWindow () {
 
   // Otwórz Narzędzia Deweloperskie.
   // win.webContents.openDevTools()
-
   // Emitowane, gdy okno jest zamknięte.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
