@@ -1,7 +1,18 @@
-﻿# Multiple-Vms-with-node.js
+![Screenshots](images/screenOfAppng.png)
+# Multiple-Vms-with-node.js
 
-Program for multiple virtual machine. Using Vmare workstation PRO API "vmrun".
+Program for multiple virtual machine. Using Vmare workstation PRO API "vmrun". 🥰
 
-30.12 - first version with static direction and command
+## Tools & Technologies I've used
+* VSC
+* Figma
+* CSS Flexbox
+* Javascript - node.js / electron
+* npm
+* VMs Pro API
 
-31.12 - New function: options to declared Vmware direction with default option
+## List to do
+
+* do custom bar
+* check if a clone with this name exists
+* save last selected options in local storage
